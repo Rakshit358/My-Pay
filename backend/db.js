@@ -1,12 +1,9 @@
 const mongoose = require("mongoose");
-// const uri =
-//   "mongodb+srv://benjwalrakshit:lj6DKd42MupiMjif@cluster0.5sfwrwq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const { DATABASE_URL } = require("./config");
 const { Schema } = mongoose;
 
 mongoose
-  .connect(
-    "mongodb+srv://benjwalrakshit:lj6DKd42MupiMjif@cluster0.5sfwrwq.mongodb.net/"
-  )
+  .connect(`${DATABASE_URL}`)
   .then(() => console.log("Database connected"));
 
 const userSchema = new Schema({
